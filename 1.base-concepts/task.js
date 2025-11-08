@@ -28,4 +28,27 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
+	if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
+		return false;
+	}
+
+
+	const P = (percent / 100) / 12;
+
+
+	const S = amount - contribution;
+
+
+	if (S <= 0) {
+		return 0;
+	}
+
+
+	const monthlyPayment = S * (P + (P / (Math.pow(1 + P, countMonths) - 1)));
+
+
+	const totalAmount = monthlyPayment * countMonths;
+
+
+	return parseFloat(totalAmount.toFixed(2));
 }
