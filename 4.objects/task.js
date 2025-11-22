@@ -10,10 +10,17 @@ Student.prototype.setSubject = function(subjectName) {
 }
 
 Student.prototype.addMarks = function(...marksToAdd) {
+
+	if (!this.marks || !Array.isArray(this.marks)) {
+
+		this.marks = [];
+	}
+
 	if (marksToAdd.length === 0) {
-        return;
-    }
-    this.marks.push(...marksToAdd);
+		return;
+	}
+
+	this.marks.push(...marksToAdd);
 }
 
 Student.prototype.getAverage = function() {
