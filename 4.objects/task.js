@@ -10,10 +10,10 @@ Student.prototype.setSubject = function(subjectName) {
 }
 
 Student.prototype.addMarks = function(...marksToAdd) {
-	if (!this.marks) {
-		return;
-	}
-	this.marks.push(...marksToAdd);
+	if (marksToAdd.length === 0) {
+        return;
+    }
+    this.marks.push(...marksToAdd);
 }
 
 Student.prototype.getAverage = function() {
