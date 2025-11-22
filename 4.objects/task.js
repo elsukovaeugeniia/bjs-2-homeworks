@@ -48,5 +48,6 @@ Student.prototype.exclude = function(reason) {
 	delete this.marks;
 
 
-	this.excluded = reason;
+
+	this.excluded = reason || 'без указания причины';
 }
