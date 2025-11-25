@@ -43,19 +43,21 @@ function getTriangle(a, b, c) {
 	try {
 		return new Triangle(a, b, c);
 	} catch (error) {
-
-		return Object.defineProperty({}, 'perimeter', {
-			get() {
-				return "Ошибка! Треугольник не существует";
+		return Object.defineProperties({}, {
+			perimeter: {
+				get() {
+					return "Ошибка! Треугольник не существует";
+				},
+				configurable: false,
+				enumerable: true
 			},
-			configurable: false,
-			enumerable: true
-		}).defineProperty('area', {
-			get() {
-				return "Ошибка! Треугольник не существует";
-			},
-			configurable: false,
-			enumerable: true
+			area: {
+				get() {
+					return "Ошибка! Треугольник не существует";
+				},
+				configurable: false,
+				enumerable: true
+			}
 		});
 	}
 }
